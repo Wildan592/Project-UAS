@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>eRuang - Sistem Peminjaman Ruangan Nurul Fikri</title>
+    <!-- Link CSS Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Tambahkan CSS Anda yang sudah ada di sini */
+
+      /* Media Queries untuk Perangkat dengan Lebar Layar ≤ 767px */
+      @media (max-width: 767px) {
+        .form-group.row {
+          flex-direction: column; /* Membuat baris dalam formulir menjadi tumpuk secara vertikal pada layar kecil */
+          align-items: center; /* Memusatkan elemen dalam baris pada layar kecil */
+        }
+
+        .col-2 {
+          width: 100%; /* Mengisi lebar penuh pada layar kecil */
+          margin-bottom: 10px; /* Jarak antara kolom pada layar kecil */
+        }
+
+        .col-6 {
+          width: 100%; /* Mengisi lebar penuh pada layar kecil */
+        }
+
+        .offset-4 {
+          margin-left: 0; /* Menghapus margin kiri pada offset pada layar kecil */
+        }
+
+        .btn {
+          width: 100%; /* Mengisi lebar penuh pada tombol pada layar kecil */
+        }
+      }
+
+      /* Tambahkan CSS Anda yang sudah ada di sini */
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <img src="asset/img/Logo 2.png" class="img-fluid rounded mx-auto d-block" alt="Logo 1" style="width: 25%; max-width: 100%; height: auto; margin-top: 25px; margin-bottom: 25px" />
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-sm-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#beranda"><img src="asset/img/Logo 1.png" class="img-fluid" alt="Logo 1" style="width: 150px; max-width: 100%; height: auto" /></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="fasilitas.html">Fasilitas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="form_booking.html">Booking</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="berita.html">Berita</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tentang_kami.html">Tentang Kami</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input class="form-control rounded-pill me-2" type="search" placeholder="Search" aria-label="Search" />
+            <button class="btn btn-outline-info rounded-pill" type="submit">Search</button>
+          </form>
+          <a href="login_user.html" type="button" class="btn btn-primary m-2">Login</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Akhir Navbar -->
+
+    <div class="card border border-black m-5">
+      <h5 class="card-header border-bottom border-black">
+        <div class="row">
+          <div class="col-10">
+            <p class="fs-2">Booking Ruangan</p>
+          </div>
+          <div class="col-2 fw-normal">
+            <!-- Breadcrumb -->
+            <nav
+              style="--bs-breadcrumb-divider: url(&#34;data:image/svg + xml, %3Csvgxmlns='http://www.w3.org/2000/svg'width='8'height='8'%3E%3Cpathd='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z'fill='%236c757d'/%3E%3C/svg%3E&#34;)"
+              aria-label="breadcrumb"
+            >
+              <ol class="breadcrumb justify-content-end">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Booking</li>
+              </ol>
+            </nav>
+            <!-- Akhir Breadcrumb -->
+          </div>
+        </div>
+      </h5>
+      <div class="card-body">
+        <form id="bookingForm" action="admin_daftar_ruangan" onsubmit="tambahData(); return false;">
+          <div class="form-group row m-3 justify-content-center">
+            <label for="namapeminjam" class="col-2 col-form-label">Nama Peminjam</label>
+            <div class="col-6">
+              <input id="namapeminjam" name="namapeminjam" type="text" required="required" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label class="col-2 col-form-label" for="namaRuangan">Nama Ruangan</label>
+            <div class="col-6">
+              <select id="namaRuangan" name="namaRuangan" required="required" class="custom-select">
+                <option>--Pilih Ruangan--</option>
+                <option value="aula cendrawasih">Aula Cendrawasih</option>
+                <option value="ruang rapat">Ruang Rapat</option>
+                <option value="ruang seminar">Ruang Seminar</option>
+                <option value="lab komputer">Lab Komputer</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label class="col-2 col-form-label" for="deskripsiKegiatan">Deskripsi Kegiatan</label>
+            <div class="col-6">
+              <textarea id="deskripsiKegiatan" name="deskripsikegiatan" cols="40" rows="3" class="form-control" required="required"></textarea>
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label class="col-2">Fasilitas Tambahan</label>
+            <div class="col-6 group">
+              <div class="custom-control custom-checkbox custom-control-inline form-check-inline">
+                <input name="fasilitasTambahan" id="fasilitasTambahan_0" type="checkbox" class="custom-control-input" value="soundsystem" />
+                <label for="fasilitasTambahan_0" class="custom-control-label">Sound System</label>
+              </div>
+              <div class="custom-control custom-checkbox custom-control-inline form-check-inline">
+                <input name="fasilitasTambahan" id="fasilitasTambahan_1" type="checkbox" class="custom-control-input" value="wifi" />
+                <label for="fasilitasTambahan_1" class="custom-control-label">Wifi</label>
+              </div>
+              <div class="custom-control custom-checkbox custom-control-inline form-check-inline">
+                <input name="fasilitasTambahan" id="fasilitasTambahan_2" type="checkbox" class="custom-control-input" value="layarbesar" />
+                <label for="fasilitasTambahan_2" class="custom-control-label">Layar Besar</label>
+              </div>
+              <div class="custom-control custom-checkbox custom-control-inline form-check-inline">
+                <input name="fasilitasTambahan" id="fasilitasTambahan_3" type="checkbox" class="custom-control-input" value="katering" />
+                <label for="fasilitasTambahan_3" class="custom-control-label">Katering</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label for="tanggalPinjam" class="col-2 col-form-label">Tanggal Pinjam</label>
+            <div class="col-6">
+              <input id="tanggalPinjam" name="tanggalPinjam" type="datetime-local" required="required" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label for="kontakPerson" class="col-2 col-form-label">Kontak Person</label>
+            <div class="col-6">
+              <input id="kontakPerson" name="kontakPerson" type="number" class="form-control" required="required" />
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label for="telponHp" class="col-2 col-form-label">Telpon/HP</label>
+            <div class="col-6">
+              <input id="telponHp" name="telponHp" type="number" class="form-control" required="required" />
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <label for="email" class="col-2 col-form-label">Email</label>
+            <div class="col-6">
+              <input id="email" name="email" type="email" class="form-control" required="required" />
+            </div>
+          </div>
+          <div class="form-group row m-3 justify-content-center">
+            <div class="offset-4 col-8">
+              <button name="submit" type="submit" class="btn btn-primary mb-2" onclick="tambahData()">Submit</button>
+              <button name="reset" type="reset" class="btn btn-danger">reset</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-dark text-light mt-5 pb-5">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-3 mt-5">
+            <h4 class="text-center border-bottom pb-2 border-blight">Information</h4>
+            <div class="row">
+              <div class="col">
+                <i class="bi bi-geo-alt-fill text-white"></i>
+              </div>
+              <div class="col-10">
+                <p class="text-start">Jalan Lenteng Agung Raya No.20 RT.5/RW.1 Lenteng Agung, Srengseng Sawah, Kec. Jagakarsa, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12640</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <i class="bi bi-telephone-fill text-white"></i>
+              </div>
+              <div class="col-10">
+                <p>Hotline : 088212348765</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <i class="bi bi-envelope-fill text-white"></i>
+              </div>
+              <div class="col-10">
+                <p>info@peminjamanruangan.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-3 mt-5">
+            <h4 class="text-center border-bottom pb-2 border-light">Tautan Cepat</h4>
+            <ul id="tautancepat" class="list-unstyled ms-3">
+              <li><a href="#">Beranda</a></li>
+              <li><a href="#">Fasilitas</a></li>
+              <li><a href="#">Booking</a></li>
+              <li><a href="#">Berita</a></li>
+              <li><a href="#">Tentang Kami</a></li>
+            </ul>
+          </div>
+          <div class="col-3 mt-5">
+            <h4 class="text-center border-bottom pb-2 border-light">Ikuti Kami</h4>
+            <ul id="follow-us" class="list-unstyled">
+              <li>
+                <a href="#" target="_blank" class="social-icon whatsapp"><i class="bi bi-whatsapp"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank" class="social-icon instagram"><i class="bi bi-instagram"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank" class="social-icon github"><i class="bi bi-github"></i></a>
+              </li>
+              <li>
+                <a href="#" target="_blank" class="social-icon linkedin"><i class="bi bi-linkedin"></i></a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-3 mt-5">
+            <h4 class="text-center border-bottom pb-2 border-light">Lokasi</h4>
+            <div class="col text-center">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.317561852966!2d106.83004867430067!3d-6.352919162150424!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ec6b07b68ea5%3A0x17da46bdf9308386!2sSTT%20Terpadu%20Nurul%20Fikri%20-%20Kampus%20B!5e0!3m2!1sid!2sid!4v1705964271684!5m2!1sid!2sid"
+                width="200"
+                height="200"
+                style="border: 2px solid gold"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a href="#" target="_blank" class="text-decoration-none">
+        <p class="text-center m-0 footer-bottom">&copy; 2024 eRuang Peminjaman Ruangan Nurul Fikri</p>
+      </a>
+    </footer>
+    <!-- Akhir Footer -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- ... (HTML code) ... -->
+
+    <script>
+      function tambahData() {
+        var namapeminjam = document.getElementById("namapeminjam").value;
+        var namaRuangan = document.getElementById("namaRuangan").value;
+        var deskripsiKegiatan = document.getElementById("deskripsiKegiatan").value;
+        var fasilitasTambahan = document.querySelectorAll('input[name="fasilitasTambahan"]:checked');
+        var tanggalPinjam = document.getElementById("tanggalPinjam").value;
+        var kontakPerson = document.getElementById("kontakPerson").value;
+        var telponHp = document.getElementById("telponHp").value;
+        var email = document.getElementById("email").value;
+
+        // Memeriksa apakah semua field formulir telah diisi
+        if (namapeminjam === "" || namaRuangan === "" || deskripsiKegiatan === "" || fasilitasTambahan.length === 0 || tanggalPinjam === "" || kontakPerson === "" || telponHp === "" || email === "") {
+          alert("Semua field formulir harus diisi.");
+          return; // Keluar dari fungsi jika ada field yang belum diisi
+        }
+
+        // Membuat objek untuk menyimpan data
+        var data = {
+          namapeminjam: namapeminjam,
+          namaRuangan: namaRuangan,
+          deskripsiKegiatan: deskripsiKegiatan,
+          fasilitasTambahan: Array.from(fasilitasTambahan).map((item) => item.value),
+          tanggalPinjam: tanggalPinjam,
+          kontakPerson: kontakPerson,
+          telponHp: telponHp,
+          email: email,
+        };
+
+        // Menyimpan data ke localStorage
+        var storedData = localStorage.getItem("formData") ? JSON.parse(localStorage.getItem("formData")) : [];
+        storedData.push(data);
+        localStorage.setItem("formData", JSON.stringify(storedData));
+
+        alert("Data telah disimpan.");
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,263 @@
+/* Media Queries Footer */
+/* Media Queries untuk Perangkat dengan Lebar Layar ≤ 767px */
+@media (max-width: 767px) {
+  .footer {
+    padding: 20px 0; /* Padding dalam footer pada layar kecil */
+  }
+
+  .row.mb-5 {
+    flex-direction: column; /* Baris dalam footer akan ditumpuk secara vertikal pada layar kecil */
+  }
+
+  .col-3 {
+    width: 100%; /* Kolom dalam footer akan mengisi lebar penuh pada layar kecil */
+    margin-bottom: 20px; /* Jarak antara kolom pada layar kecil */
+  }
+
+  .col-3 h4 {
+    text-align: center; /* Judul kolom dalam footer menjadi tengah pada layar kecil */
+    margin-bottom: 15px; /* Jarak antara judul dan isi pada layar kecil */
+  }
+
+  .col-3 p {
+    text-align: center; /* Teks dalam kolom menjadi tengah pada layar kecil */
+  }
+
+  .list-unstyled {
+    text-align: center; /* Daftar menjadi tengah pada layar kecil */
+    margin-top: 10px; /* Jarak antara daftar dan judul pada layar kecil */
+  }
+
+  #tautancepat,
+  #follow-us {
+    padding-left: 0; /* Menghapus padding kiri pada daftar pada layar kecil */
+  }
+
+  .footer-bottom {
+    margin-top: 20px; /* Jarak antara teks footer dan daftar sosial media pada layar kecil */
+  }
+
+  iframe {
+    width: 100%; /* Iframe mengisi lebar penuh pada layar kecil */
+  }
+}
+/* Akhir Media Queries Footer */
+
+.nav-link:hover {
+  color: black;
+  background-color: aqua;
+  border: 1px gold solid;
+  border-radius: 5%;
+}
+* li,
+a {
+  list-style-type: none;
+  text-decoration: none;
+}
+li a:hover {
+  color: gold;
+}
+/* Footer */
+.footer-bottom {
+  color: white;
+}
+#tautancepat a {
+  text-decoration: none;
+  color: white;
+}
+
+#tautancepat a:hover {
+  color: blue;
+}
+
+#follow-us {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Posisikan ikon di tengah secara horizontal */
+}
+
+#follow-us li {
+  margin-right: 10px;
+}
+
+.social-icon {
+  display: inline-block;
+  font-size: 2rem;
+  color: #fff; /* Sesuaikan dengan warna ikon */
+  padding: 5px; /* Sesuaikan ukuran padding ikon */
+  border-radius: 75%; /* Membuat ikon menjadi lingkaran */
+  transition: color 0.3s ease;
+}
+
+.social-icon.whatsapp {
+  color: green;
+}
+.social-icon.instagram {
+  color: #e4405f;
+}
+.social-icon.github {
+  color: white;
+}
+.social-icon.linkedin {
+  color: blue;
+}
+
+.social-icon.whatsapp:hover {
+  color: #128c7e;
+} /* Warna hover untuk WhatsApp */
+.social-icon.instagram:hover {
+  color: #8a3ab9;
+} /* Warna hover untuk Instagram */
+.social-icon.github:hover {
+  color: #6e6e6e;
+} /* Warna hover untuk GitHub */
+.social-icon.linkedin:hover {
+  color: #2d5e8b;
+} /* Warna hover untuk LinkedIn */
+.footer-bottom:hover {
+  color: blue;
+}
+/* Akhir footer */
+
+/* CSS Login & Registrasi */
+#login,
+#registrasi {
+  background-color: whitesmoke;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 350px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.title {
+  font-size: 28px;
+  color: royalblue;
+  font-weight: 600;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  left: 0px;
+  background-color: royalblue;
+}
+
+.title::before {
+  width: 18px;
+  height: 18px;
+  background-color: royalblue;
+}
+
+.title::after {
+  width: 18px;
+  height: 18px;
+  animation: pulse 1s linear infinite;
+}
+
+.message,
+.signin {
+  color: rgba(88, 87, 87, 0.822);
+  font-size: 14px;
+}
+
+.signin {
+  text-align: center;
+}
+
+.signin a {
+  color: royalblue;
+}
+
+.signin a:hover {
+  text-decoration: underline royalblue;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 6px;
+}
+
+.form label {
+  position: relative;
+}
+
+.form label .input {
+  width: 100%;
+  padding: 10px 10px 20px 10px;
+  outline: 0;
+  border: 1px solid rgba(105, 105, 105, 0.397);
+  border-radius: 10px;
+}
+
+.form label .input + span {
+  position: absolute;
+  left: 10px;
+  top: 15px;
+  color: grey;
+  font-size: 0.9em;
+  cursor: text;
+  transition: 0.3s ease;
+}
+
+.form label .input:placeholder-shown + span {
+  top: 15px;
+  font-size: 0.9em;
+}
+
+.form label .input:focus + span,
+.form label .input:valid + span {
+  top: 30px;
+  font-size: 0.7em;
+  font-weight: 600;
+}
+
+.form label .input:valid + span {
+  color: green;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  background-color: royalblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transform: 0.3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+/* Akhir CSS Login & Registrasi */
